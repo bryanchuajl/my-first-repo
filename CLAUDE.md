@@ -37,6 +37,35 @@ A web portal where visitors try small web tools about AI and IoT.
 2. **Phase 2 — More tools:** add further small tools, one at a time.
 3. **Phase 3 — Polish:** improve and extend based on what visitors use.
 
+## Design Direction
+The look is called "Classroom": friendly, rounded, and easy to read. Every new page or tool must follow it.
+- **Use the variables in `styles.css`** (`--bg`, `--text`, `--accent`, and so on) and the shared classes (`.card`, `.panel`, `.muted`). Never hard-code a colour, font, or radius in a page. This keeps the light and dark themes working automatically.
+
+### Palette
+| Role | Light | Dark |
+|---|---|---|
+| Page background `--bg` | `#EFF9F6` | `#0D1B18` |
+| Card / panel `--card` | `#FFFFFF` | `#14272A` |
+| Text `--text` | `#12322B` | `#E6F7F2` |
+| Secondary text `--muted` | `#3F5F57` | `#A5C7BE` |
+| Borders `--border` | `#BFDDD5` | `#2A4A45` |
+| Accent (links, buttons, sliders) `--accent` | `#0F766E` | `#5EEAD4` |
+| Text on accent `--accent-text` | `#FFFFFF` | `#0D1B18` |
+| Highlight chip / icon tile `--chip-bg`, `--chip-text` | `#FDE68A` / `#3B2A00` | `#4A3A0C` / `#FDE68A` |
+
+All text pairs above meet a contrast ratio of at least 4.5:1 (the accessibility minimum for body text). Check any new colour pair before using it.
+
+### Typography
+- Font: Nunito (loaded from Google Fonts in each page's `<head>`), falling back to the system font.
+- Weights: 400 body, 600 buttons, 800 headings and brand name.
+- Sizes: body 1.125rem; site name 1.4rem; page title (`h2`) 2rem; section title (`h3`) 1.3rem; card title 1.5rem; intro text 1.25rem.
+
+### Spacing and shape
+- Spacing steps: 0.5rem, 1rem, 1.5rem, 3rem (`--space-s`, `--space-m`, `--space-l`, `--space-xl`).
+- Corners: cards and panels 24px, icon tiles 14px, buttons and chips fully rounded (pills).
+- Borders are 2px. Buttons are at least 2.75rem tall so they are easy to tap.
+- Page width: content is centred, at most 65rem wide.
+
 ## Rules for Claude
 - Explain technical terms in plain language.
 - Ask before making big changes.

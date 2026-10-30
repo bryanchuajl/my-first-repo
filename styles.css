@@ -1,19 +1,35 @@
+/* Design Direction: "Classroom" (see CLAUDE.md). Use these variables; never hard-code colours. */
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #4a4a4a;
-  --border: #c8c8c8;
-  --card: #f5f5f5;
-  --link: #0b57d0;
+  --bg: #eff9f6;
+  --card: #ffffff;
+  --text: #12322b;
+  --muted: #3f5f57;
+  --border: #bfddd5;
+  --accent: #0f766e;
+  --accent-text: #ffffff;
+  --chip-bg: #fde68a;
+  --chip-text: #3b2a00;
+
+  --font: "Nunito", system-ui, sans-serif;
+  --radius-card: 24px;
+  --radius-small: 14px;
+  --radius-pill: 999px;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 3rem;
 }
 
 :root[data-theme="dark"] {
-  --bg: #121212;
-  --text: #f0f0f0;
-  --muted: #b8b8b8;
-  --border: #444444;
-  --card: #1e1e1e;
-  --link: #8ab4f8;
+  --bg: #0d1b18;
+  --card: #14272a;
+  --text: #e6f7f2;
+  --muted: #a5c7be;
+  --border: #2a4a45;
+  --accent: #5eead4;
+  --accent-text: #0d1b18;
+  --chip-bg: #4a3a0c;
+  --chip-text: #fde68a;
 }
 
 * {
@@ -22,21 +38,32 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font);
+  font-size: 1.125rem;
   line-height: 1.5;
   background: var(--bg);
   color: var(--text);
 }
 
 a {
-  color: var(--link);
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 header,
 main {
-  max-width: 60rem;
+  max-width: 65rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding: var(--space-l) var(--space-m);
+}
+
+main {
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-xl);
 }
 
 header {
@@ -44,52 +71,100 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  gap: var(--space-m);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-small);
+  background: var(--accent);
+  color: var(--accent-text);
 }
 
 header h1 {
   margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.intro {
   font-size: 1.25rem;
+  color: var(--muted);
 }
 
 button {
   font: inherit;
+  font-weight: 600;
+  min-height: 2.75rem;
   color: var(--text);
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0 1.25rem;
   cursor: pointer;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space-l);
   padding: 0;
   list-style: none;
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
   height: 100%;
-  padding: 1rem;
+  padding: var(--space-l);
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-card);
   color: var(--text);
   text-decoration: none;
 }
 
 .card:hover,
 .card:focus-visible {
-  border-color: var(--link);
+  border-color: var(--accent);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-small);
+  background: var(--chip-bg);
+  color: var(--chip-text);
 }
 
 .card h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .card p {
@@ -97,11 +172,24 @@ button {
   color: var(--muted);
 }
 
+.card-action {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 800;
+}
+
 .panel {
-  margin: 1rem 0;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  margin: var(--space-m) 0;
+  padding: var(--space-l);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-card);
 }
 
 .panel h3 {
@@ -113,12 +201,17 @@ button {
   margin-top: 0.75rem;
 }
 
+.panel input[type="range"],
+.panel input[type="radio"] {
+  accent-color: var(--accent);
+}
+
 .panel input[type="range"] {
   width: 100%;
 }
 
 .panel input[type="radio"] {
-  margin-right: 0.5rem;
+  margin-right: var(--space-s);
 }
 
 .muted {
@@ -127,4 +220,13 @@ button {
 
 .result {
   font-size: 1.25rem;
+}
+
+.result strong {
+  display: inline-block;
+  padding: 0.1rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-weight: 800;
 }
