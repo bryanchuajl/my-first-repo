@@ -8,8 +8,12 @@
 Nearly empty for now. Currently:
 - `README.md` — repository readme
 - `CLAUDE.md` — this file
+- `index.html` — portal homepage
+- `tool1.html` — placeholder page for Tool 1
+- `styles.css` — shared styles (light and dark theme colours)
+- `theme.js` — shared light/dark theme toggle
 
-Pages (`*.html`), styles (`*.css`), and scripts (`*.js`) will live at the top level until the project grows enough to need folders.
+Pages (`*.html`), styles (`*.css`), and scripts (`*.js`) live at the top level until the project grows enough to need folders.
 
 ## Key Requirements
 1. Every page must be responsive and work on desktop, tablet, and phone.
@@ -27,6 +31,8 @@ A web portal where visitors try small web tools about AI and IoT.
 
 ### Phases
 1. **Phase 1 — Portal + first tool:** the homepage and one tool, a sensor-to-decision simulator (move fake sensor sliders, see what a simple AI rule decides and why).
+   - [x] Portal homepage with a placeholder "Tool 1 — coming soon" card that opens and closes via "Back to all tools"
+   - [ ] Build the sensor-to-decision simulator in place of the placeholder
 2. **Phase 2 — More tools:** add further small tools, one at a time.
 3. **Phase 3 — Polish:** improve and extend based on what visitors use.
 
