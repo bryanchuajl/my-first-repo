@@ -16,6 +16,20 @@ Pages (`*.html`), styles (`*.css`), and scripts (`*.js`) will live at the top le
 2. Users can toggle between a light and a dark theme. The default is the light theme.
 3. Text must stay easy to read, with good contrast, in both the light and the dark theme.
 
+## Feature Plan
+A web portal where visitors try small web tools about AI and IoT.
+
+### Portal structure
+- **Homepage** (`index.html`): a short intro and one card per tool.
+- **Opening a tool:** clicking a card opens that tool's own page.
+- **Getting back:** every tool page has a "Back to all tools" link to the homepage.
+- **Adding a new tool later:** make one new page for the tool, then add one card for it on the homepage. Nothing else changes.
+
+### Phases
+1. **Phase 1 — Portal + first tool:** the homepage and one tool, a sensor-to-decision simulator (move fake sensor sliders, see what a simple AI rule decides and why).
+2. **Phase 2 — More tools:** add further small tools, one at a time.
+3. **Phase 3 — Polish:** improve and extend based on what visitors use.
+
 ## Rules for Claude
 - Explain technical terms in plain language.
 - Ask before making big changes.
