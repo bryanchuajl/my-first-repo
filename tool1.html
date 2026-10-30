@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tool 1 — coming soon</title>
+  <title>Smart Light Simulator</title>
   <link rel="stylesheet" href="styles.css">
   <script src="theme.js"></script>
 </head>
@@ -14,8 +14,45 @@
   </header>
   <main>
     <p><a href="index.html">&larr; Back to all tools</a></p>
-    <h2>Tool 1 — coming soon</h2>
-    <p>This is a placeholder page. The real tool will go here.</p>
+    <h2>Smart Light Simulator</h2>
+    <p>
+      A smart light has two sensors. A sensor is a small device that measures
+      something, like how bright a room is. Move the sliders to fake what the
+      sensors see, then watch how a simple "AI" decides what the light should do.
+    </p>
+
+    <section class="panel">
+      <h3>1. Fake sensor readings</h3>
+      <label for="brightness">Room brightness: <span id="brightness-value"></span></label>
+      <input id="brightness" type="range" min="0" max="100" value="30">
+      <label for="movement">Movement: <span id="movement-value"></span></label>
+      <input id="movement" type="range" min="0" max="100" value="60">
+    </section>
+
+    <section class="panel">
+      <h3>2. How should it decide?</h3>
+      <label><input type="radio" name="mode" value="rule" checked> Fixed rules</label>
+      <label><input type="radio" name="mode" value="score"> Scoring model</label>
+      <p id="mode-help" class="muted"></p>
+
+      <div id="weights" hidden>
+        <p class="muted">
+          A weight says how much the model cares about a sensor. A higher weight
+          means that sensor has more say in the score.
+        </p>
+        <label for="w-dark">Weight for darkness: <span id="w-dark-value"></span></label>
+        <input id="w-dark" type="range" min="0" max="10" value="5">
+        <label for="w-move">Weight for movement: <span id="w-move-value"></span></label>
+        <input id="w-move" type="range" min="0" max="10" value="5">
+      </div>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <h3>3. What the light does</h3>
+      <p class="result">Light: <strong id="decision"></strong></p>
+      <p id="reason"></p>
+    </section>
   </main>
+  <script src="simulator.js"></script>
 </body>
 </html>
